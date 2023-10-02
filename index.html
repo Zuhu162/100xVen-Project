@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/addedToCart.css" />
+  </head>
+
+  <body>
+    <div id="topbarContainer" class="topbarContainer">
+      <div id="topbar" class="topbar">
+        <img
+          class="icon"
+          src="./assets/icons/cart-shopping-solid.svg"
+          alt="cart-shopping-solid-icon"
+        />
+        <div id="totalItems" class="itemsInCart">0</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="grid-container">
+        <div class="grid-item item-1">
+          <!-- First Column - Three Rows -->
+          <!-- <img
+            class="previewImg"
+            src="./assets/high1.jpg"
+            alt="Product Image 1"
+          />
+          <img
+            class="previewImg"
+            src="./assets/high2.jpg"
+            alt="Product Image 2"
+          />
+          <img
+            class="previewImg"
+            src="./assets/high3.jpg"
+            alt="Product Image 3"
+          /> -->
+        </div>
+        <div class="grid-item item-2" id="previewImg"></div>
+        <div class="grid-item item-3">
+          <!-- Third Column - Product Information -->
+          <h1 id="itemTitle">Title</h1>
+          <h2 id="itemVariant">Variant</h2>
+          <p id="itemPrice">Price: $XX.XX</p>
+          <!-- Method that maps data -->
+          <div class="variantContainer" id="imageContainer"></div>
+          <button onclick="addToCart()" class="cartButton">Add to Cart</button>
+          <div id="cartSection" class="cartSection">
+            <!-- <button onclick="decrement()" id="decButton" class="incDecButton">
+              -
+            </button>
+            <button onclick="increment()" id="incButton" class="incDecButton">
+              +
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./utils/script.js"></script>
+</html>

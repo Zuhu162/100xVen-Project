@@ -1,0 +1,35 @@
+.addedToCartModal {
+  /* Modal styles */
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-align: center;
+  width: 60%;
+
+  /* Text styles */
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+
+  /* Animation styles (optional) */
+  animation: fadeInOut 5s ease-in-out;
+}
+
+/* Optional animation keyframes */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
