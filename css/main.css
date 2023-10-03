@@ -1,11 +1,8 @@
 /* General styles for all screen sizes */
 body {
   margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
-  /* background: linear-gradient(70deg, #ffffff 50%, #000000 50%);
-   */
-  background-color: #f8f8f8;
+  transition: background 0.5s ease;
 }
 
 /* Cart Section */
@@ -14,14 +11,12 @@ body {
 }
 
 .topbar {
-  width: 60%;
-  margin: auto;
+  width: 100%;
   margin-bottom: 20px;
   height: 100px;
   background-color: white;
   display: flex;
   align-items: center;
-  padding: 15px;
   justify-content: flex-end;
 }
 
@@ -33,20 +28,32 @@ body {
 
 .icon {
   width: 20px;
-  margin-right: 5px;
+  cursor: pointer;
+}
+
+.cartIcon {
+  width: 30px;
+  cursor: pointer;
+  margin: -10px;
 }
 
 .itemsInCart {
-  background-color: white;
+  background-color: rgb(138, 138, 138);
+  border-radius: 50%;
+  color: white;
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
 }
 
 .incDecButton {
   width: 50px;
-  background-color: black;
-  color: white;
+  background-color: rgb(255, 255, 255);
   border: none;
-  font-size: 1.2em;
-  padding: 10px;
+  font-size: 1em;
   /* border-radius: 20px; */
   cursor: pointer;
 }
@@ -56,16 +63,19 @@ body {
 .container {
   width: 60%;
   margin: auto;
+  -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 2s ease-out;
+  -o-transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: 10% 50% 40%;
+  grid-template-columns: 0% 50% 50%;
 }
 
-.grid-item {
-  padding: 10px;
-}
+/* .grid-item {
+} */
 
 .item-1 {
   background-color: #ffffff;
@@ -86,6 +96,12 @@ body {
   height: auto;
 }
 
+.itemDesc {
+  font-size: 1.2em;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 .cartButton {
   width: 100%;
   background-color: black;
@@ -95,10 +111,16 @@ body {
   padding: 10px;
   border-radius: 20px;
   cursor: pointer;
+  transition: background 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .item-3 {
-  background-color: #a0c1e7;
+  background-color: #ffffff;
+}
+
+.item3-inner {
+  padding: 20px;
 }
 
 .variantContainer {
@@ -108,7 +130,7 @@ body {
 }
 
 .variantImgContainer {
-  padding: 5px;
+  padding: 10px;
 }
 
 .variantImg {
@@ -128,7 +150,11 @@ body {
   }
 
   .grid-container {
-    grid-template-columns: 10% 90%; /* First grid 10%, second grid 90% */
+    grid-template-columns: 0% 100%;
+  }
+  .item-2 {
+    grid-column: span 2; /* Third grid spans two columns */
+    width: 100%;
   }
 
   .item-3 {
@@ -140,7 +166,7 @@ body {
 /* Styles for smaller screens (e.g., mobile devices) */
 @media (max-width: 767px) {
   .container {
-    width: 90%;
+    width: 80%;
   }
 
   .grid-container {

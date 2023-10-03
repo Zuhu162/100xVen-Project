@@ -10,16 +10,19 @@
 
   <body>
     <div id="topbarContainer" class="topbarContainer">
+      <div id="cartDD" class="cartDD"></div>
       <div id="topbar" class="topbar">
         <img
-          class="icon"
+          class="cartIcon"
           src="./assets/icons/cart-shopping-solid.svg"
           alt="cart-shopping-solid-icon"
+          onclick="showCart()"
         />
+
         <div id="totalItems" class="itemsInCart">0</div>
       </div>
     </div>
-    <div class="container">
+    <div id="container" class="container">
       <div class="grid-container">
         <div class="grid-item item-1">
           <!-- First Column - Three Rows -->
@@ -42,23 +45,35 @@
         <div class="grid-item item-2" id="previewImg"></div>
         <div class="grid-item item-3">
           <!-- Third Column - Product Information -->
-          <h1 id="itemTitle">Title</h1>
-          <h2 id="itemVariant">Variant</h2>
-          <p id="itemPrice">Price: $XX.XX</p>
-          <!-- Method that maps data -->
-          <div class="variantContainer" id="imageContainer"></div>
-          <button onclick="addToCart()" class="cartButton">Add to Cart</button>
-          <div id="cartSection" class="cartSection">
-            <!-- <button onclick="decrement()" id="decButton" class="incDecButton">
-              -
+          <div class="item3-inner">
+            <h1 id="itemTitle">Title</h1>
+            <h2 id="itemVariant">Variant</h2>
+            <p id="itemPrice">Price: $XX.XX</p>
+            <!-- Method that maps data -->
+            <div class="variantContainer" id="imageContainer"></div>
+            <div class="itemDesc" id="itemDesc"></div>
+            <button
+              id="addToCartButton"
+              onclick="addToCart()"
+              class="cartButton"
+            >
+              Add to Cart
             </button>
-            <button onclick="increment()" id="incButton" class="incDecButton">
-              +
-            </button> -->
+            <div id="cartSection" class="cartSection">
+              <button onclick="decrement()" id="decButton" class="incDecButton">
+                -
+              </button>
+              <div></div>
+              <button onclick="addToCart()" id="incButton" class="incDecButton">
+                +
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </body>
+  <script src="./utils/fakedata.js"></script>
   <script src="./utils/script.js"></script>
+  <script src="./utils/previewImg.js"></script>
 </html>

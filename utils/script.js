@@ -1,95 +1,3 @@
-const mensNikeShoes = [
-  {
-    name: "Nike Air Max 90",
-    variant: "Red",
-    price: 129.99,
-    image1: "../assets/high1.jpg",
-    image2: "nike-air-max-90-red-variant2.jpg",
-    image3: "nike-air-max-90-red-variant3.jpg",
-    image4: "nike-air-max-90-red-variant4.jpg",
-    image5: "nike-air-max-90-red-variant5.jpg",
-  },
-  {
-    name: "Nike Air Max 91",
-    variant: "Black",
-    price: 129.99,
-    image1: "../assets/high2.jpg",
-    image2: "nike-air-max-90-black-variant2.jpg",
-    image3: "nike-air-max-90-black-variant3.jpg",
-    image4: "nike-air-max-90-black-variant4.jpg",
-    image5: "nike-air-max-90-black-variant5.jpg",
-  },
-  {
-    name: "Nike Air Max 92",
-    variant: "Blue",
-    price: 129.99,
-    image1: "../assets/high3.jpg",
-    image2: "nike-air-max-90-blue-variant2.jpg",
-    image3: "nike-air-max-90-blue-variant3.jpg",
-    image4: "nike-air-max-90-blue-variant4.jpg",
-    image5: "nike-air-max-90-blue-variant5.jpg",
-  },
-  // {
-  //   name: "Nike Air Max 90",
-  //   variant: "White",
-  //   price: 129.99,
-  //   image1: "../assets/high1.jpg",
-  //   image2: "nike-air-max-90-white-variant2.jpg",
-  //   image3: "nike-air-max-90-white-variant3.jpg",
-  //   image4: "nike-air-max-90-white-variant4.jpg",
-  //   image5: "nike-air-max-90-white-variant5.jpg",
-  // },
-  // {
-  //   name: "Nike Air Max 90",
-  //   variant: "Gray",
-  //   price: 129.99,
-  //   image1: "../assets/high1.jpg",
-  //   image2: "nike-air-max-90-gray-variant2.jpg",
-  //   image3: "nike-air-max-90-gray-variant3.jpg",
-  //   image4: "nike-air-max-90-gray-variant4.jpg",
-  //   image5: "nike-air-max-90-gray-variant5.jpg",
-  // },
-];
-
-//Preview image in second column
-let selectedVariant = mensNikeShoes[0];
-const previewImgDiv = document.getElementById("previewImg");
-
-let previewImg = document.createElement("img");
-previewImg.className = "productImg";
-previewImg.src = selectedVariant.image1;
-previewImgDiv.append(previewImg);
-
-//Get variantDetailsContainer
-let itemTitle = document.getElementById("itemTitle");
-itemTitle.textContent = mensNikeShoes[0].name;
-let itemVariant = document.getElementById("itemVariant");
-itemVariant.textContent = mensNikeShoes[0].variant;
-let itemPrice = document.getElementById("itemPrice");
-itemPrice.textContent = `$${mensNikeShoes[0].price}`;
-
-// Get variantImageContainer
-const imageContainer = document.getElementById("imageContainer");
-
-// Loop through the images of the selected variant and create <img> elements
-mensNikeShoes.forEach((shoe) => {
-  const div = document.createElement("div");
-
-  div.className = "variantImgContainer";
-  div.onclick = () => {
-    selectedVariant = shoe;
-    previewImg.src = shoe.image1;
-    itemTitle.textContent = shoe.name;
-    itemVariant.textContent = shoe.variant;
-  };
-  const img = document.createElement("img");
-  img.className = "variantImg";
-  img.src = shoe.image1;
-  img.alt = `${shoe.name} - ${shoe.variant}`;
-  div.append(img);
-  imageContainer.append(div);
-});
-
 //Items in Cart
 const cartItems = [];
 
@@ -97,26 +5,72 @@ const cartItems = [];
 const totalItems = document.getElementById("totalItems");
 
 const addToCart = () => {
-  const cartSection = document.getElementById("cartSection");
-  cartSection.style.display = "block";
-  cartSection.style.display = "flex";
   cartItems.push(selectedVariant);
-  // totalItems.textContent = totalItemsAmount;
-  console.log(cartItems.length);
   totalItems.textContent = cartItems.length;
 
-  const modal = document.createElement("div");
+  // Add modal
+  showAddedModal();
 
-  modal.className = "addedToCartModal";
-  modal.textContent = "Item successfully added to cart";
-  const body = document.getElementById("topbarContainer");
-  body.appendChild(modal);
+  //Adding new item to cart
+  const cartItem = document.createElement("div");
+  cartItem.className = "cartItemContainer";
 
-  // Set a timer to remove the modal after a specified duration (e.g., 3 seconds)
-  const durationInSeconds = 5; // Adjust the duration as needed
-  setTimeout(function () {
-    modal.remove(); // Remove the modal from the DOM
-  }, durationInSeconds * 1000); // Convert seconds to milliseconds
+  const cartItemImg = document.createElement("img");
+  cartItemImg.className = "cartItemImg";
+  cartItemImg.src = cartItems[cartItems.length - 1].image1;
+
+  const cartItemDets = document.createElement("div");
+  cartItemDets.className = "cartItemDets";
+  cartItemDets.textContent = `${cartItems[cartItems.length - 1].name} $${
+    cartItems[cartItems.length - 1].price
+  }`;
+
+  //Increment Button
+  const incButton = document.createElement("button");
+  incButton.className = "incDecButton";
+  const incIcon = document.createElement("img");
+  incIcon.className = "icon";
+  incIcon.src = "../assets/icons/circle-plus-solid.svg";
+  incButton.appendChild(incIcon);
+  incButton.id = selectedVariant.id;
+  incButton.onclick = () => {
+    const sel = cartItems.findIndex((item) => item.id == incButton.id);
+    selectedVariant = cartItems[sel];
+
+    addToCart();
+  };
+
+  //Decrement Button
+  const decButton = document.createElement("button");
+  decButton.className = "incDecButton";
+
+  const delIcon = document.createElement("img");
+  delIcon.className = "icon";
+  delIcon.src = "../assets/icons/trash-solid.svg";
+  decButton.appendChild(delIcon);
+  decButton.onclick = () => {
+    decrement();
+    cartItem.remove();
+    totalItems.textContent = cartItems.length;
+  };
+
+  cartItem.appendChild(cartItemImg);
+  cartItem.appendChild(cartItemDets);
+  cartItem.appendChild(incButton);
+  cartItem.appendChild(decButton);
+
+  dropDown.appendChild(cartItem);
+};
+
+// Dropdown
+const dropDown = document.getElementById("cartDD");
+const topbarContainer = document.getElementById("topbarContainer");
+topbarContainer.appendChild(dropDown);
+
+const showCart = () => {
+  dropDown.style.display === "none"
+    ? (dropDown.style.display = "block")
+    : (dropDown.style.display = "none");
 };
 
 //Increment Button Function
@@ -125,10 +79,25 @@ const increment = () => {
   totalItems.textContent = cartItems.length;
 };
 
-//Decrement Button Function
 const decrement = () => {
-  const toBeRemoved = cartItems.findIndex((item) => {
-    return item.name === selectedVariant.name;
+  const toBeRemovedIndex = cartItems.findIndex((item) => {
+    return item.id === selectedVariant.id;
   });
-  delete cartItems[toBeRemoved];
+  cartItems.splice(toBeRemovedIndex, 1);
+  totalItems.textContent = cartItems.length;
+};
+
+//show modal
+const showAddedModal = () => {
+  const modal = document.createElement("div");
+  modal.className = "addedToCartModal";
+  modal.textContent = "Item successfully added to cart";
+  const body = document.getElementById("topbarContainer");
+  body.appendChild(modal);
+
+  // Remove the modal after a specified duration
+  const durationInSeconds = 5;
+  setTimeout(function () {
+    modal.remove();
+  }, durationInSeconds * 1000);
 };
