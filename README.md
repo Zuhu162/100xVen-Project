@@ -2,6 +2,8 @@
 
 Welcome to the E-commerce Product Page project! This is a simple e-commerce product page created as part of a developer pre-assessment for 100x Ventures.
 
+[Live Link - ]([URL](https://100x-bettersmile-project.netlify.app/))
+
 ## Description
 
 This project is a front-end implementation of an e-commerce product page with various features and functionalities, including multiple product images, product variations, an "Add to Cart" button, and more.
