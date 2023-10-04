@@ -53,7 +53,7 @@ const mensNikeShoes = [
       "../assets/high3/af3.4.webp",
       "../assets/high3/af3.5.webp",
     ],
-    colorTheme: ["#000000", "#764F3D"],
+    colorTheme: ["#232227", "#764F3D"],
     inStock: true,
   },
   {
@@ -73,6 +73,6 @@ const mensNikeShoes = [
       "../assets/high4/af4.5.webp",
     ],
     colorTheme: ["#96A4BF", "#1F266A"],
-    inStock: false, // Set to false for the last one
+    inStock: false, //Set to false because it is not in stock as per instructions
   },
 ];

@@ -1,25 +1,27 @@
-//Preview image in second column
-let selectedVariant = mensNikeShoes[0];
+//Getting the item that is to be displayed initially
+let product = mensNikeShoes[0];
+//Preview image in first column
+let selectedVariant = product;
 const previewImgDiv = document.getElementById("previewImg");
 
 //Get body
 const body = document.getElementsByTagName("BODY")[0];
 
 //Set initial body background
-body.style.background = mensNikeShoes[0].colorTheme[0];
+body.style.background = product.colorTheme[0];
 
 //Get Add To Cart Button
 let addToCartButton = document.getElementById("addToCartButton");
-addToCartButton.style.background = mensNikeShoes[0].colorTheme[1];
-addToCartButton.style.color = mensNikeShoes[0].colorTheme[0];
+addToCartButton.style.background = product.colorTheme[1];
+addToCartButton.style.color = product.colorTheme[0];
 
 //Get inStock
-let inStock = mensNikeShoes[0].inStock;
+let inStock = product.inStock;
 const itemInStock = document.getElementById("itemInStock");
 
 //Get Logo
 let logo = document.getElementById("logo");
-logo.style.fill = mensNikeShoes[0].colorTheme[1];
+logo.style.fill = product.colorTheme[1];
 
 //Disable button if out of stock
 if (!inStock) {
@@ -38,6 +40,7 @@ if (!inStock) {
 
 //Get preview image
 let previewImg = document.createElement("img");
+previewImg.classList.add("item-2Anim");
 
 //Set initial preview image
 previewImg.className = "productImg";
@@ -46,13 +49,13 @@ previewImgDiv.append(previewImg);
 
 //Get variantDetailsContainer
 let itemTitle = document.getElementById("itemTitle");
-itemTitle.textContent = mensNikeShoes[0].name;
+itemTitle.textContent = product.name;
 let itemVariant = document.getElementById("itemVariant");
-itemVariant.textContent = mensNikeShoes[0].variant;
+itemVariant.textContent = product.variant;
 let itemPrice = document.getElementById("itemPrice");
-itemPrice.textContent = `$${mensNikeShoes[0].price}`;
+itemPrice.textContent = `$${product.price}`;
 let itemDesc = document.getElementById("itemDesc");
-itemDesc.textContent = mensNikeShoes[0].description;
+itemDesc.textContent = product.description;
 
 // Get variantImageContainer
 const imageContainer = document.getElementById("imageContainer");
@@ -70,6 +73,12 @@ mensNikeShoes.forEach((shoe) => {
 
     selectedVariant = shoe;
     previewImg.src = shoe.image1;
+
+    //Animation Fly in
+    previewImg.classList.remove("item-2Anim");
+    void previewImg.offsetWidth;
+    previewImg.classList.add("item-2Anim");
+
     itemTitle.textContent = shoe.name;
     itemVariant.textContent = shoe.variant;
     itemPrice.textContent = `$${shoe.price}`;

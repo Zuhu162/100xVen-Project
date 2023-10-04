@@ -1,4 +1,4 @@
-function openModal() {
+const openModal = () => {
   const modal = document.createElement("div");
   imageUrls = selectedVariant.modalImages;
   console.log(selectedVariant.variant);
@@ -43,28 +43,59 @@ function openModal() {
 
   // Display the modal
   modal.style.display = "block";
+  prevButton.classList.add("disabledButton");
 
-  // Add event listener to close modal when clicked outside
+  //Event listener to close modal when clicked outside
   window.addEventListener("click", (event) => {
     if (event.target === modal) {
       closeModal();
     }
   });
 
-  function closeModal() {
+  const closeModal = () => {
     modal.classList.add("fade-out");
     // modal.style.display = "none";
-    // Remove the event listener when the modal is closed
     window.removeEventListener("click", closeModal);
-  }
+  };
 
-  function prevImage() {
+  const prevImage = () => {
     index !== 0 ? (index = index - 1) : null;
     modalImage.src = imageUrls[index];
-  }
 
-  function nextImage() {
+    if (index !== imageUrls.length - 1) {
+      nextButton.classList.remove("disabledButton");
+    }
+    if (index === 0) {
+      prevButton.classList.add("disabledButton");
+    }
+
+    modalImage.classList.add("modalImageAnimLeft");
+    // After adding the animation class, trigger a reflow
+    void modalImage.offsetWidth;
+    // Remove the animation class after the animation completes
+    modalImage.addEventListener("animationend", () => {
+      modalImage.classList.remove("modalImageAnimLeft");
+    });
+  };
+
+  const nextImage = () => {
     index < imageUrls.length - 1 ? (index = index + 1) : null;
+
+    if (index === imageUrls.length - 1) {
+      nextButton.classList.add("disabledButton");
+    }
+    if (index !== 0) {
+      prevButton.classList.remove("disabledButton");
+    }
+
     modalImage.src = imageUrls[index];
-  }
-}
+    modalImage.classList.add("modalImageAnimRight");
+
+    // After adding the animation class, trigger a reflow
+    void modalImage.offsetWidth;
+    // Remove the animation class after the animation completes
+    modalImage.addEventListener("animationend", () => {
+      modalImage.classList.remove("modalImageAnimRight");
+    });
+  };
+};

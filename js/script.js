@@ -26,9 +26,8 @@ const addToCart = () => {
 
   const cartItemDets = document.createElement("div");
   cartItemDets.className = "cartItemDets";
-  cartItemDets.textContent = `${cartItems[cartItems.length - 1].name} $${
-    cartItems[cartItems.length - 1].price
-  }`;
+  cartItemDets.textContent = `${cartItems[cartItems.length - 1].name} - 
+  $${cartItems[cartItems.length - 1].price}`;
 
   //Increment Button
   const incButton = document.createElement("button");

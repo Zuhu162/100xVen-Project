@@ -9,7 +9,6 @@
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  text-align: center;
   width: 40%;
 
   /* Text styles */
@@ -17,10 +16,10 @@
   font-weight: bold;
   color: #333;
 
-  animation: fadeInOut 5s ease-in-out; /* Adjust the duration as needed */
+  animation: fadeInOut 5s ease-in-out;
 }
 
-/* Optional animation keyframes */
+/*keyframes */
 @keyframes fadeInOut {
   0% {
     opacity: 0;
