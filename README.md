@@ -2,7 +2,7 @@
 
 Welcome to the E-commerce Product Page project! This is a simple e-commerce product page created as part of a developer pre-assessment for 100x Ventures.
 
-[Live Link - ]([URL](https://100x-bettersmile-project.netlify.app/))
+[Live Link to Project][https://100x-bettersmile-project.netlify.app/]
 
 ## Description
 
