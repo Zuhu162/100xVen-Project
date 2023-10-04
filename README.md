@@ -12,9 +12,6 @@ This project is a front-end implementation of an e-commerce product page with va
 - [Functionalities](#functionalities)
 - [Technologies Used](#technologies-used)
 - [Setup](#setup)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
