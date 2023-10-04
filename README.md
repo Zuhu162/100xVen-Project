@@ -50,19 +50,5 @@ This project is a front-end implementation of an e-commerce product page with va
 1. Clone the repository to your local machine.
 
 ```bash
-git clone <repository-url>
-Open the project in your preferred code editor.
-Usage
-To view the product page, simply open the index.html file in a web browser.
-
-Contributing
-Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
-
-Fork the project.
-Create your feature branch (git checkout -b feature/your-feature).
-Commit your changes (git commit -m 'Add some feature').
-Push to the branch (git push origin feature/your-feature).
-Open a pull request.
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+git clone https://github.com/Zuhu162/100xVen-Project.git
 ```
