@@ -1,14 +1,20 @@
 //Getting the item that is to be displayed initially
-let product = mensNikeShoes[0];
+let products = af1h;
+let product = af1h[0];
 //Preview image in first column
 let selectedVariant = product;
 const previewImgDiv = document.getElementById("previewImg");
 
 //Get body
 const body = document.getElementsByTagName("BODY")[0];
-
 //Set initial body background
 body.style.background = product.colorTheme[0];
+
+//Get footer
+let footer = document.getElementsByTagName("footer")[0];
+//Set initial footer background, textColor
+footer.style.background = product.colorTheme[1];
+footer.style.color = product.colorTheme[0];
 
 //Get Add To Cart Button
 let addToCartButton = document.getElementById("addToCartButton");
@@ -61,13 +67,15 @@ itemDesc.textContent = product.description;
 const imageContainer = document.getElementById("imageContainer");
 
 // Loop through the images of the selected variant and create <img> elements
-mensNikeShoes.forEach((shoe) => {
+products.forEach((shoe) => {
   const div = document.createElement("div");
   // const gradientBackground = `${shoe.colorTheme[0]}`;
 
   div.className = "variantImgContainer";
   div.onclick = () => {
     body.style.background = shoe.colorTheme[0];
+    footer.style.background = shoe.colorTheme[1];
+    footer.style.color = shoe.colorTheme[0];
     addToCartButton.style.background = shoe.colorTheme[1];
     addToCartButton.style.color = shoe.colorTheme[0];
 
@@ -108,3 +116,11 @@ mensNikeShoes.forEach((shoe) => {
   div.append(img);
   imageContainer.append(div);
 });
+
+//Set Video Source
+const videoPlayer = document.getElementById("videoPlayer");
+videoPlayer.src = videoUrl;
+
+// //Set Content details
+// const content = document.getElementById("content");
+// content.textContent = productDetails;

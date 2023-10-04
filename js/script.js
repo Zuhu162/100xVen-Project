@@ -101,7 +101,7 @@ const showAddedModal = () => {
   body.appendChild(modal);
 
   // Remove the modal after a specified duration
-  const durationInSeconds = 5;
+  const durationInSeconds = 2;
   setTimeout(function () {
     modal.remove();
   }, durationInSeconds * 1000);

@@ -16,7 +16,7 @@
   font-weight: bold;
   color: #333;
 
-  animation: fadeInOut 5s ease-in-out;
+  animation: fadeInOut 2s ease-in-out;
 }
 
 /*keyframes */
@@ -33,7 +33,7 @@
 }
 
 .cartDD {
-  width: 300px;
+  width: 350px;
   background-color: rgb(255, 255, 255);
   display: none;
   position: absolute;
