@@ -40,7 +40,6 @@ This project is a front-end implementation of an e-commerce product page with va
 - HTML
 - CSS
 - JavaScript
-- jQuery (as allowed)
 
 ## Setup
 
