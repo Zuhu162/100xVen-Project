@@ -4,9 +4,14 @@ const cartItems = [];
 //Add to Cart Button Function
 const totalItems = document.getElementById("totalItems");
 
+let totalCost = 0;
+
 const addToCart = () => {
   cartItems.push(selectedVariant);
   totalItems.textContent = cartItems.length;
+
+  //Calculate total price
+  totalCost = totalCost + selectedVariant.price;
 
   // Add modal
   showAddedModal();
@@ -68,6 +73,7 @@ const topbarContainer = document.getElementById("topbarContainer");
 topbarContainer.appendChild(dropDown);
 
 const showCart = () => {
+  // Toggle the display of the dropdown
   dropDown.style.display === "none"
     ? (dropDown.style.display = "block")
     : (dropDown.style.display = "none");

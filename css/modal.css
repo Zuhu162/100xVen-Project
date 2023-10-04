@@ -1,0 +1,86 @@
+/* Modal container */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  overflow: auto;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Modal content */
+.modal-content {
+  position: relative;
+  margin: auto;
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+}
+
+.fade-out {
+  animation: fade-out 0.25s forwards;
+}
+
+/* Previous and Next buttons */
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Image */
+#modalImage {
+  max-width: 100%;
+  max-height: 100vh;
+  margin-bottom: 10px;
+  animation: myAnim 0.4s ease 0s 1 normal none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes myAnim {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

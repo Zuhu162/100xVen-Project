@@ -6,49 +6,52 @@
     <title>Product</title>
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/addedToCart.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
   </head>
 
   <body>
     <div id="topbarContainer" class="topbarContainer">
       <div id="cartDD" class="cartDD"></div>
       <div id="topbar" class="topbar">
-        <img
-          class="cartIcon"
-          src="./assets/icons/cart-shopping-solid.svg"
-          alt="cart-shopping-solid-icon"
-          onclick="showCart()"
-        />
-
-        <div id="totalItems" class="itemsInCart">0</div>
+        <svg
+          id="logo"
+          class="logo"
+          width="150"
+          height="150"
+          viewBox="0 0 3814 1382"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M691 778.5C269.8 689.7 441.5 223.167 580 1C423.667 154.5 92.9 531.5 20.5 811.5C-70 1161.5 164.5 1408 580 1379C912.4 1355.8 2874.17 450.667 3813.5 1C3085.33 201.167 1562.3 620.4 1295.5 696C1028.7 771.6 781.333 782.5 691 778.5Z"
+          />
+        </svg>
+        <div cartWrapper>
+          <img
+            class="cartIcon"
+            src="./assets/icons/cart-shopping-solid.svg"
+            alt="cart-shopping-solid-icon"
+            onclick="showCart()"
+          />
+          <div id="totalItems" class="itemsInCart">0</div>
+        </div>
       </div>
     </div>
     <div id="container" class="container">
       <div class="grid-container">
-        <div class="grid-item item-1">
-          <!-- First Column - Three Rows -->
-          <!-- <img
-            class="previewImg"
-            src="./assets/high1.jpg"
-            alt="Product Image 1"
-          />
-          <img
-            class="previewImg"
-            src="./assets/high2.jpg"
-            alt="Product Image 2"
-          />
-          <img
-            class="previewImg"
-            src="./assets/high3.jpg"
-            alt="Product Image 3"
-          /> -->
-        </div>
-        <div class="grid-item item-2" id="previewImg"></div>
+        <!-- <div class="grid-item item-1"></div> -->
+        <div
+          class="grid-item item-2"
+          onclick="openModal()"
+          id="previewImg"
+        ></div>
         <div class="grid-item item-3">
           <!-- Third Column - Product Information -->
           <div class="item3-inner">
             <h1 id="itemTitle">Title</h1>
             <h2 id="itemVariant">Variant</h2>
             <p id="itemPrice">Price: $XX.XX</p>
+            <p id="itemInStock"></p>
             <!-- Method that maps data -->
             <div class="variantContainer" id="imageContainer"></div>
             <div class="itemDesc" id="itemDesc"></div>
@@ -76,4 +79,5 @@
   <script src="./utils/fakedata.js"></script>
   <script src="./utils/script.js"></script>
   <script src="./utils/previewImg.js"></script>
+  <script src="./utils/galleryModal.js"></script>
 </html>

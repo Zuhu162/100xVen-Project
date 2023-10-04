@@ -13,6 +13,29 @@ let addToCartButton = document.getElementById("addToCartButton");
 addToCartButton.style.background = mensNikeShoes[0].colorTheme[1];
 addToCartButton.style.color = mensNikeShoes[0].colorTheme[0];
 
+//Get inStock
+let inStock = mensNikeShoes[0].inStock;
+const itemInStock = document.getElementById("itemInStock");
+
+//Get Logo
+let logo = document.getElementById("logo");
+logo.style.fill = mensNikeShoes[0].colorTheme[1];
+
+//Disable button if out of stock
+if (!inStock) {
+  addToCartButton.textContent = "Out of Stock";
+  addToCartButton.className = "cartButtonDisabled";
+  addToCartButton.onclick = null;
+  itemInStock.textContent = "Out of Stock";
+  itemInStock.style.color = "Red";
+} else {
+  addToCartButton.textContent = "Add to Cart";
+  addToCartButton.className = "cartButton";
+  addToCartButton.onclick = () => addToCart();
+  itemInStock.textContent = "In Stock";
+  itemInStock.style.color = "Green";
+}
+
 //Get preview image
 let previewImg = document.createElement("img");
 
@@ -51,6 +74,23 @@ mensNikeShoes.forEach((shoe) => {
     itemVariant.textContent = shoe.variant;
     itemPrice.textContent = `$${shoe.price}`;
     itemDesc.textContent = shoe.description;
+    logo.style.fill = shoe.colorTheme[1];
+
+    //In Stock Check
+    inStock = shoe.inStock;
+    if (!inStock) {
+      addToCartButton.textContent = "Out of Stock";
+      addToCartButton.className = "cartButtonDisabled";
+      addToCartButton.onclick = null;
+      itemInStock.textContent = "Out of Stock";
+      itemInStock.style.color = "Red";
+    } else {
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.className = "cartButton";
+      addToCartButton.onclick = () => addToCart();
+      itemInStock.textContent = "In Stock";
+      itemInStock.style.color = "Green";
+    }
   };
   const img = document.createElement("img");
   img.className = "variantImg";
