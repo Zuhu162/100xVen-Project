@@ -60,7 +60,7 @@ const af1h = [
     id: 3,
     name: "Nike Air Force 1 High",
     variant: "Blue",
-    price: 139.99,
+    price: 145.99,
     description:
       "Sporty Nike Air Force 1 High in Blue. Dive into the world of style and athleticism with this vibrant blue variant of the Nike Air Force 1 High, perfect for active individuals. Its breathable mesh upper and responsive sole provide the ultimate comfort and support during your workouts. Stand out from the crowd with these bold and dynamic sneakers.",
     image1: "../assets/high4.jpg",
