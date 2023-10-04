@@ -11,6 +11,7 @@ This project is a front-end implementation of an e-commerce product page with va
 - [Features](#features)
 - [Functionalities](#functionalities)
 - [Technologies Used](#technologies-used)
+- [Sequence Diagram](#sequence-diagram)
 - [Setup](#setup)
 
 ## Features
@@ -40,6 +41,12 @@ This project is a front-end implementation of an e-commerce product page with va
 - HTML
 - CSS
 - JavaScript
+
+## Sequence Diagram
+
+Here's a simplified sequence diagram illustrating the interaction flow of the e-commerce website:
+
+![Sequence Diagram](./assets/sequence.png)
 
 ## Setup
 
