@@ -7,6 +7,7 @@ Welcome to the E-commerce Product Page project! This is a simple e-commerce prod
 ## Description
 
 This project is a front-end implementation of an e-commerce product page with various features and functionalities, including multiple product images, product variations, an "Add to Cart" button, and more.
+The Nike product page has consistently stood out to me as a shining example of effective, yet simple web design in the realm of online shopping. In my pursuit of this pre-assessment task, I aimed to recreate the essence of the Nike product page. It's essential to adhere to industry standards of well-crafted websites while infusing a touch of creativity and personal style, all within the guidelines of the project assessment.
 
 ## Table of Contents
 

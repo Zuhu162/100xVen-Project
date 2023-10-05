@@ -188,6 +188,7 @@ footer {
   transition: background 0.5s ease;
   transition: color 0.5s ease;
   font-weight: bold;
+  pointer-events: none;
 }
 
 .item-3 {
