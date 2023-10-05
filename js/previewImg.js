@@ -120,7 +120,3 @@ products.forEach((shoe) => {
 //Set Video Source
 const videoPlayer = document.getElementById("videoPlayer");
 videoPlayer.src = videoUrl;
-
-// //Set Content details
-// const content = document.getElementById("content");
-// content.textContent = productDetails;

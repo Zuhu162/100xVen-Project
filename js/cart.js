@@ -25,18 +25,11 @@ const dropDown = document.getElementById("cartDD");
 const topbarContainer = document.getElementById("topbarContainer");
 topbarContainer.appendChild(dropDown);
 
-// Toggle the display of the dropdown
 const showCart = () => {
+  // Toggle the display of the dropdown
   dropDown.style.display === "none"
     ? (dropDown.style.display = "block")
     : (dropDown.style.display = "none");
-};
-
-//Increment Button Function
-const increment = () => {
-  cartItems.push(cartVariant);
-  totalItems.textContent = cartItems.length;
-  createCartItem();
 };
 
 //Create cart item element
@@ -63,9 +56,9 @@ const createCartItem = () => {
   incButton.id = selectedVariant.id;
   incButton.onclick = () => {
     const sel = cartItems.findIndex((item) => item.id == incButton.id);
-    cartVariant = cartItems[sel];
+    selectedVariant = cartItems[sel];
 
-    increment();
+    addToCart();
   };
 
   //Decrement Button
@@ -76,10 +69,12 @@ const createCartItem = () => {
   delIcon.className = "icon";
   delIcon.src = "../assets/icons/trash-solid.svg";
   decButton.appendChild(delIcon);
+  decButton.id = selectedVariant.id;
   decButton.onclick = () => {
-    decrement();
+    const sel = cartItems.findIndex((item) => item.id == decButton.id);
     cartItem.remove();
     totalItems.textContent = cartItems.length;
+    decrement(sel);
   };
 
   cartItem.appendChild(cartItemImg);
@@ -90,13 +85,16 @@ const createCartItem = () => {
   dropDown.appendChild(cartItem);
 };
 
-//Decrement function
-const decrement = () => {
-  const toBeRemovedIndex = cartItems.findIndex((item) => {
-    return item.id === selectedVariant.id;
-  });
-  cartItems.splice(toBeRemovedIndex, 1);
+//Increment Button Function
+const increment = () => {
   totalItems.textContent = cartItems.length;
+  createCartItem();
+};
+
+const decrement = (index) => {
+  cartItems.splice(index, 1);
+  totalItems.textContent = cartItems.length;
+  cartItems.forEach((item) => console.log(item.variant));
 };
 
 //show modal
