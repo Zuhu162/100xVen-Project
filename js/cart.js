@@ -93,7 +93,6 @@ const increment = () => {
 const decrement = (index) => {
   cartItems.splice(index, 1);
   totalItems.textContent = cartItems.length;
-  cartItems.forEach((item) => console.log(item.variant));
 };
 
 //show modal
