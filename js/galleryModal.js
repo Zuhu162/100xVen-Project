@@ -59,43 +59,48 @@ const openModal = () => {
   };
 
   const prevImage = () => {
-    index !== 0 ? (index = index - 1) : null;
-    modalImage.src = imageUrls[index];
+    //Set Time Out to Load Photo
+    setTimeout(() => {
+      index !== 0 ? (index = index - 1) : null;
+      modalImage.src = imageUrls[index];
 
-    if (index !== imageUrls.length - 1) {
-      nextButton.classList.remove("disabledButton");
-    }
-    if (index === 0) {
-      prevButton.classList.add("disabledButton");
-    }
+      if (index !== imageUrls.length - 1) {
+        nextButton.classList.remove("disabledButton");
+      }
+      if (index === 0) {
+        prevButton.classList.add("disabledButton");
+      }
 
-    modalImage.classList.add("modalImageAnimLeft");
-    // After adding the animation class, trigger a reflow
-    void modalImage.offsetWidth;
-    // Remove the animation class after the animation completes
-    modalImage.addEventListener("animationend", () => {
-      modalImage.classList.remove("modalImageAnimLeft");
-    });
+      modalImage.classList.add("modalImageAnimLeft");
+      // After adding the animation class, trigger a reflow
+      void modalImage.offsetWidth;
+      // Remove the animation class after the animation completes
+      modalImage.addEventListener("animationend", () => {
+        modalImage.classList.remove("modalImageAnimLeft");
+      });
+    }, 200);
   };
 
   const nextImage = () => {
-    index < imageUrls.length - 1 ? (index = index + 1) : null;
+    setTimeout(() => {
+      index < imageUrls.length - 1 ? (index = index + 1) : null;
 
-    if (index === imageUrls.length - 1) {
-      nextButton.classList.add("disabledButton");
-    }
-    if (index !== 0) {
-      prevButton.classList.remove("disabledButton");
-    }
+      if (index === imageUrls.length - 1) {
+        nextButton.classList.add("disabledButton");
+      }
+      if (index !== 0) {
+        prevButton.classList.remove("disabledButton");
+      }
 
-    modalImage.src = imageUrls[index];
-    modalImage.classList.add("modalImageAnimRight");
+      modalImage.src = imageUrls[index];
+      modalImage.classList.add("modalImageAnimRight");
 
-    // After adding the animation class, trigger a reflow
-    void modalImage.offsetWidth;
-    // Remove the animation class after the animation completes
-    modalImage.addEventListener("animationend", () => {
-      modalImage.classList.remove("modalImageAnimRight");
-    });
+      // After adding the animation class, trigger a reflow
+      void modalImage.offsetWidth;
+      // Remove the animation class after the animation completes
+      modalImage.addEventListener("animationend", () => {
+        modalImage.classList.remove("modalImageAnimRight");
+      });
+    }, 200);
   };
 };

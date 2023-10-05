@@ -1,11 +1,13 @@
 //Items in Cart
 const cartItems = [];
+let cartVariant;
 
 //Add to Cart Button Function
 const totalItems = document.getElementById("totalItems");
 
 let totalCost = 0;
 
+//Add item to Cart
 const addToCart = () => {
   cartItems.push(selectedVariant);
   totalItems.textContent = cartItems.length;
@@ -15,8 +17,30 @@ const addToCart = () => {
 
   // Add modal
   showAddedModal();
+  createCartItem();
+};
 
-  //Adding new item to cart
+// Dropdown
+const dropDown = document.getElementById("cartDD");
+const topbarContainer = document.getElementById("topbarContainer");
+topbarContainer.appendChild(dropDown);
+
+// Toggle the display of the dropdown
+const showCart = () => {
+  dropDown.style.display === "none"
+    ? (dropDown.style.display = "block")
+    : (dropDown.style.display = "none");
+};
+
+//Increment Button Function
+const increment = () => {
+  cartItems.push(cartVariant);
+  totalItems.textContent = cartItems.length;
+  createCartItem();
+};
+
+//Create cart item element
+const createCartItem = () => {
   const cartItem = document.createElement("div");
   cartItem.className = "cartItemContainer";
 
@@ -29,7 +53,7 @@ const addToCart = () => {
   cartItemDets.textContent = `${cartItems[cartItems.length - 1].name} - 
   $${cartItems[cartItems.length - 1].price}`;
 
-  //Increment Button
+  //Increment Button;
   const incButton = document.createElement("button");
   incButton.className = "incDecButton";
   const incIcon = document.createElement("img");
@@ -39,9 +63,9 @@ const addToCart = () => {
   incButton.id = selectedVariant.id;
   incButton.onclick = () => {
     const sel = cartItems.findIndex((item) => item.id == incButton.id);
-    selectedVariant = cartItems[sel];
+    cartVariant = cartItems[sel];
 
-    addToCart();
+    increment();
   };
 
   //Decrement Button
@@ -66,24 +90,7 @@ const addToCart = () => {
   dropDown.appendChild(cartItem);
 };
 
-// Dropdown
-const dropDown = document.getElementById("cartDD");
-const topbarContainer = document.getElementById("topbarContainer");
-topbarContainer.appendChild(dropDown);
-
-const showCart = () => {
-  // Toggle the display of the dropdown
-  dropDown.style.display === "none"
-    ? (dropDown.style.display = "block")
-    : (dropDown.style.display = "none");
-};
-
-//Increment Button Function
-const increment = () => {
-  cartItems.push(selectedVariant);
-  totalItems.textContent = cartItems.length;
-};
-
+//Decrement function
 const decrement = () => {
   const toBeRemovedIndex = cartItems.findIndex((item) => {
     return item.id === selectedVariant.id;
