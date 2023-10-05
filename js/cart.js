@@ -1,6 +1,5 @@
 //Items in Cart
 const cartItems = [];
-let cartVariant;
 
 //Add to Cart Button Function
 const totalItems = document.getElementById("totalItems");
