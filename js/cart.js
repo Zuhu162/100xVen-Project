@@ -54,10 +54,7 @@ const createCartItem = () => {
   incButton.appendChild(incIcon);
   incButton.id = selectedVariant.id;
   incButton.onclick = () => {
-    const sel = cartItems.findIndex((item) => item.id == incButton.id);
-    selectedVariant = cartItems[sel];
-
-    addToCart();
+    increment(incButton.id);
   };
 
   //Decrement Button
@@ -70,10 +67,8 @@ const createCartItem = () => {
   decButton.appendChild(delIcon);
   decButton.id = selectedVariant.id;
   decButton.onclick = () => {
-    const sel = cartItems.findIndex((item) => item.id == decButton.id);
     cartItem.remove();
-    totalItems.textContent = cartItems.length;
-    decrement(sel);
+    decrement(decButton.id);
   };
 
   cartItem.appendChild(cartItemImg);
@@ -85,12 +80,14 @@ const createCartItem = () => {
 };
 
 //Increment Button Function
-const increment = () => {
-  totalItems.textContent = cartItems.length;
-  createCartItem();
+const increment = (id) => {
+  const sel = cartItems.findIndex((item) => item.id == id);
+  selectedVariant = cartItems[sel];
+  addToCart();
 };
 
-const decrement = (index) => {
+const decrement = (id) => {
+  const index = cartItems.findIndex((item) => item.id == id);
   cartItems.splice(index, 1);
   totalItems.textContent = cartItems.length;
 };
